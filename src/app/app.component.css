@@ -1,0 +1,29 @@
+.alertred{
+  color: red;
+}
+
+h2{
+margin-left:500px;
+text-align: center;
+}
+
+.messageerror{
+margin-left:500px;
+text-align: center;
+}
+
+.alertbox1{
+  color: red;
+  border: 1px solid;
+  padding: 3px 90px;
+}
+
+.alertgreen{
+  color: green;
+}
+
+.alertbox2{
+  color: green;
+  border: 1px solid;
+padding: 3px 130px;
+}

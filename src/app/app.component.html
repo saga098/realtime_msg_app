@@ -1,0 +1,88 @@
+<router-outlet></router-outlet>
+<div class="container-fluid ml-4">
+    <div class="row">
+        <h2>Realtime Chat Application</h2>
+        <hr>
+    </div>
+    <div class="row">
+      <div class="messageerror"><div *ngIf="error" class="alertred alertbox1">
+                                {{error}}
+                </div> <div *ngIf="msg" class="alertgreen alertbox2">
+                                {{msg}}
+                </div></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3">
+
+      </div>
+        <div class="col-lg-7">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" [(ngModel)]="user" class="form-control" id="user" placeholder="username">
+
+            </div>
+            <!-- <div class="form-group">
+                <label for="token">RTM token</label>
+                <input type="text" [(ngModel)]="token" class="form-control" id="token" placeholder="token">
+
+            </div> -->
+            <div class="col-sm-2">
+                    <button type="button" class="btn btn-success pull-right" (click)="login(user,token)">login</button>
+                    <button type="button" class="btn btn-success pull-right" (click)="logout()">logout</button>
+            </div>
+
+      <div *ngIf="msg==='Login Success'">
+        <br>
+   <div class="row">
+
+        <div class="col-lg-7 col-sm-7">
+            <label for="PeerId">Peer Id</label>
+            <input type="text" name="peerId" id="peerId"
+             class="form-control" [(ngModel)]="peerId">
+
+
+        </div>
+
+        <div class="col-lg-7 col-sm-7">
+        <div class="row">
+          <div class="col-sm-10">
+          <label for="Messages">Message</label>
+                <input type="text" class="form-control" [(ngModel)]="messageText">
+                    <button type="button" class="btn btn-success pull-right" (click)="sendMessage(messageText,peerId)">Send</button>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-7 col-sm-7">
+
+                <input type="file" class="file-input" id="fileinput" [(ngModel)]="fileText" (change)="selectImage($event)" >
+                 <!-- [(ngModel)]="fileimg" -->
+               <!-- <img [src]="imageSource || 'static path'" alt="My Profile Image"/> -->
+                    <button type="button" class="btn btn-success pull-right" (click)="sendimage(peerId)">Send Image</button>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+  </div>
+
+
+
+    <div class="row">
+        <div class="well" style="height:200px; padding:15px;">
+            <div *ngFor="let item of messageArray">
+
+            <h4 *ngIf="item.type=='text'">{{item.peerId}}:{{item.text.text}}</h4>
+            <div *ngIf="item.type=='image'">
+            <h4>{{item.peerId}}:<img width="200"  src="{{item.text}}" id="output"></h4>
+            </div>
+            </div>
+
+        </div>
+<div id="container" style="width:350px;height:250px">
+  <canvas id="CANVAS" width=300 height=300></canvas>
+</div>
+</div>
+</div>
